@@ -1,0 +1,46 @@
+create table Newsletter(
+	Sifra int not null primary key identity(1,1),
+	Ime nvarchar(50) not null,
+	Email nvarchar(50) not null,
+)
+
+create table Gradovi(
+	SifraGrada int not null primary key,
+	Naziv nvarchar(50) not null,
+	Drzava nvarchar(50) not null,
+)
+insert into Gradovi values(1,'Beograd','Srbija')
+insert into Gradovi values(2,'Barselona','Spanija')
+insert into Gradovi values(3,'Milan','Italija')
+
+
+create table Hoteli(
+	SifraHotela int not null primary key identity(1,1),
+	Naziv nvarchar(50) not null,
+	Grad int not null foreign key references Gradovi(SifraGrada),
+	Zvezdice int not null,
+	Opis ntext,
+)
+insert into Hoteli values('Hilton',1,5,'Veoma lep hotel')
+insert into Hoteli values('Hilton',2,5,'Veoma lep hotel')
+insert into Hoteli values('Hilton',2,5,'Veoma lep hotel')
+insert into Hoteli values('Hilton',3,5,'Veoma lep hotel')
+insert into Hoteli values('Hilton',3,5,'Veoma lep hotel')
+insert into Hoteli values('Hilton',1,5,'Veoma lep hotel')
+
+create table Rezervacija(
+	SifraKontakta int not null primary key identity(1,1),
+	Ime nvarchar(50) not null,
+	Email nvarchar(50) not null,
+	Mesto nvarchar(50) not null,
+	Hotel nvarchar(50) not null,
+)
+
+
+
+
+select * from Newsletter
+select * from Gradovi
+select * from Hoteli
+select * from Rezervacija
+
